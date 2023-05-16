@@ -35,8 +35,8 @@ echo "[+] Copy kernel su driver to $DRIVER_DIR"
 cd "$DRIVER_DIR"
 if test -d "$GKI_ROOT/common/drivers"; then
      ln -sf "../../KernelSU" "kernelsu"
-elif test -d "$GKI_ROOT/drivers"; then
-     ln -sf "../KernelSU" "kernelsu"
+elif test -d "$GKI_ROOT/drivers/staging"; then
+     ln -sf "../../KernelSU" "kernelsu"
 fi
 cd "$GKI_ROOT"
 
