@@ -33,11 +33,9 @@ echo "[+] GKI_ROOT: $GKI_ROOT"
 echo "[+] Copy kernel su driver to $DRIVER_DIR"
 
 cd "$DRIVER_DIR"
-if test -d "$GKI_ROOT/common/drivers"; then
-     ln -sf "../../KernelSU" "kernelsu"
-elif test -d "$GKI_ROOT/drivers/staging"; then
-     ln -sf "$GKI_ROOT/KernelSU" "$DRIVER_DIR/kernelsu"
-fi
+
+test -e "$DRIVER_DIR/kernelsu" || ln -sf "$GKI_ROOT/KernelSU" "$DRIVER_DIR/kernelsu"
+
 cd "$GKI_ROOT"
 
 echo '[+] Add kernel su driver to Makefile'
