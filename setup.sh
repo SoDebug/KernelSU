@@ -7,8 +7,8 @@ echo "[+] GKI_ROOT: $GKI_ROOT"
 
 if test -d "$GKI_ROOT/common/drivers"; then
      DRIVER_DIR="$GKI_ROOT/common/drivers"
-elif test -d "$GKI_ROOT/drivers/staging"; then
-     DRIVER_DIR="$GKI_ROOT/drivers/staging"
+elif test -d "$GKI_ROOT/drivers"; then
+     DRIVER_DIR="$GKI_ROOT/drivers"
 else
      echo '[ERROR] "drivers/" directory is not found.'
      echo '[+] You should modify this script by yourself.'
@@ -16,6 +16,9 @@ else
 fi
 
 test -d "$GKI_ROOT/KernelSU"
+cd "$GKI_ROOT/KernelSU"
+git stash
+git pull
 cd "$GKI_ROOT"
 
 echo "[+] GKI_ROOT: $GKI_ROOT"
@@ -24,7 +27,7 @@ echo "[+] Copy kernel su driver to $DRIVER_DIR"
 cd "$DRIVER_DIR"
 if test -d "$GKI_ROOT/common/drivers"; then
      ln -sf "../../KernelSU/kernel" "kernelsu"
-elif test -d "$GKI_ROOT/drivers/staging"; then
+elif test -d "$GKI_ROOT/drivers/staging/"; then
      ln -sf "../../KernelSU" "kernelsu"
 fi
 cd "$GKI_ROOT"
