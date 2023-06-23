@@ -7,8 +7,8 @@ echo "[+] GKI_ROOT: $GKI_ROOT"
 
 if test -d "$GKI_ROOT/common/drivers"; then
      DRIVER_DIR="$GKI_ROOT/common/drivers"
-elif test -d "$GKI_ROOT/drivers"; then
-     DRIVER_DIR="$GKI_ROOT/drivers"
+elif test -d "$GKI_ROOT/drivers/staging"; then
+     DRIVER_DIR="$GKI_ROOT/drivers/staging"
 else
      echo '[ERROR] "drivers/" directory is not found.'
      echo '[+] You should modify this script by yourself.'
